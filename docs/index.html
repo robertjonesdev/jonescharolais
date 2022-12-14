@@ -31,8 +31,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#map">Map & Directions</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">Bulls</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Who We Are</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Bulls</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -286,9 +286,10 @@
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="assets/img/team/trent.JPG" alt="Trent Jones" />
                             <h4>Trent Jones</h4>
-                            <!--
+                            
                             <p class="text-muted"></p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="tel:903-249-4998" aria-label="Telephone"><i class="fa fa-phone"></i></a> <a  href="tel:903-249-4998">903-249-4998</a>
+                            <!--
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                             -->
@@ -345,12 +346,75 @@
             </div>
         </div>
         -->
+        <section class="page-section" id="pictures">
+            <div class="container">
+                <div class="main-img">
+                    <img src="assets/img/cows/1.JPG" alt="" id="current">
+                </div>
+                <div class="imgs">
+                    <img src="assets/img/cows/1.JPG" alt="">
+                    <img src="assets/img/cows/2.JPG" alt="">
+                    <img src="assets/img/cows/3.JPG" alt="">
+                    <img src="assets/img/cows/4.JPG" alt="">
+
+                    <img src="assets/img/cows/5.JPG" alt="">
+                    <img src="assets/img/cows/6.JPG" alt="">
+                    <img src="assets/img/cows/7.JPG" alt="">
+                    <img src="assets/img/cows/9.JPG" alt="">
+                </div>
+            </div>
+
+            <style>
+                .main-img img,
+                .imgs img {
+                    width: 100%;
+                }
+                .imgs {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-gap: 5px;
+                    cursor: pointer;
+                    margin-top:5px;
+                }
+                @media (min-width: 768px) {
+                    .imgs {
+                        grid-template-columns: repeat(4, 1fr);
+                    }
+                }
+                @keyframes fadeIn {
+                    to {
+                        opacity: 1;
+                    }
+                }
+                .fade-in {
+                    opacity: 0;
+                    animation: fadeIn 0.5s ease-in 1 forwards;
+                }
+            </style>
+            <script>
+                const current = document.querySelector('#current');
+                const imgs = document.querySelectorAll('.imgs img');
+                const opacity = 0.4;
+
+                imgs[0].style.opacity = opacity;
+
+                imgs.forEach(img => img.addEventListener('click', imgClick));
+
+                function imgClick (e) {
+                    imgs.forEach(img => (img.style.opacity = 1));
+                    current.src = e.target.src;
+                    current.classList.add('fade-in');
+                    setTimeout(() => current.classList.remove('fade-in'), 500);
+                    e.target.style.opacity = opacity;
+                }
+            </script>
+        </section>
         <!-- Contact-->
         <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted"></h3>
+                    <h3 class="section-subheading text-muted">Call Trent at <a href="tel:903-249-4998">903-249-4998</a></h3>
                 </div>
                 <!-- * * * * * * * * * * * * * * *-->
                 <!-- * * SB Forms Contact Form * *-->
@@ -359,7 +423,7 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="http://formspree.io/rtjones@gmail.com">
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -393,10 +457,9 @@
                     <!-- has successfully submitted-->
                     <div class="d-none" id="submitSuccessMessage">
                         <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
+                            <div class="fw-bolder">Contact submission successful!</div>
+                            Feel free to call Trent Jones at <a href="tel:903-249-4998">903-249-4998</a>
                             <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                         </div>
                     </div>
                     <!-- Submit error message-->
